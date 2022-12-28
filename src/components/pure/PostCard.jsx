@@ -51,7 +51,7 @@ export const PostCard = (props) => {
                 <p className="u-align-text--left" style={{paddingLeft:"5%"}}>
                     <em>
                         By <a href={_embedded.author[0].link}>{_embedded.author[0].name}</a>
-                        on {new Date(post.date).toDateString()}
+                         on {new Date(post.date).toDateString()}
                     </em>
                 </p>
             </div>
