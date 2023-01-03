@@ -4,14 +4,17 @@ import {PostCard} from "./PostCard";
 const Layout = () => {
     const [posts, setPosts] = useState([]);
 
-    useEffect(()=> {
-        getAllPosts()
-            .then(response => {
-                if(response.status === 200) {
-                    setPosts(response.data);
-                }
-            })
-            .catch()
+    useEffect( ()=> {
+        async function getPosts() {
+            try {
+                const { data } = await getAllPosts();
+                setPosts(data);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        getPosts();
+
     }, [])
 
 
